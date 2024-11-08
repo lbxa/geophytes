@@ -43,10 +43,10 @@ const renderer = new THREE.WebGLRenderer({
 });
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.setClearColor(0xe7bc2f);
+// renderer.setClearColor(0xe7bc2f);
 document.body.appendChild(renderer.domElement);
 
-const gltfLoader = new GLTFLoader().setPath('./src/assets/tree/');
+const gltfLoader = new GLTFLoader().setPath('/assets/models/tree/');
 gltfLoader.load('scene.gltf', (gltf: GLTF) => {
   const model = gltf.scene;
 
@@ -92,13 +92,13 @@ const controls = new OrbitControls(camera, domElement);
 controls.enableDamping = true;
 
 controls.enablePan = false;
-controls.minDistance = 10;
-controls.maxDistance = 30;
-controls.minPolarAngle = 0; // Allow full rotation
-controls.maxPolarAngle = Math.PI; // Allow full rotation
+controls.minDistance = 1.5;
+controls.maxDistance = 5;
+controls.minPolarAngle = 0;
+controls.maxPolarAngle = Math.PI;
 controls.enableZoom = false;
 
-camera.position.set(2, 1, 10);
+camera.position.set(0.5, 0.25, 2.5);
 // camera.lookAt(0, 0, 0);
 /**
  * controls.update() must be called after any manual changes 
