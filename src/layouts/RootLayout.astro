@@ -17,35 +17,23 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#f5f5f5" id="theme-color" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
     <title>{title}</title>
-    <link rel="manifest" href="/site.webmanifest" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/icons/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg" />
+    <link rel="shortcut icon" href="/icons/favicon.ico" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
       href="/icons/apple-touch-icon.png"
     />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/icons/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/icons/favicon-16x16.png"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
-      integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"
-      crossorigin="anonymous"
-      media="print"
-      onload="this.media='all'"
-    />
+    <meta name="apple-mobile-web-app-title" content="Geophytes" />
+    <link rel="manifest" href="/icons/site.webmanifest" />
     <script is:inline>
       // fetch user dark mode settings
       // inline option removes astro overhead - no theme flickering
