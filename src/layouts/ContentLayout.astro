@@ -1,0 +1,33 @@
+---
+import Footer from "@/components/Footer.astro";
+import RootLayout from "@/layouts/RootLayout.astro";
+
+const { title } = Astro.props;
+---
+
+<RootLayout title={title}>
+  <main class="flex flex-col mx-auto px-2xl">
+    <header
+      class="text-5xl sm:text-6xl lg:text-8xl uppercase font-black mb-2xl"
+    >
+      {title}
+    </header>
+    <article class="grow">
+      <slot />
+    </article>
+    <Footer />
+  </main>
+</RootLayout>
+
+<style>
+  main {
+    min-height: 100vh;
+    padding-top: calc(100px + 10px);
+  }
+
+  @supports (min-height: 100dvh) {
+    main {
+      min-height: 100dvh;
+    }
+  }
+</style>

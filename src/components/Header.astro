@@ -1,0 +1,23 @@
+---
+import { Icon } from "astro-icon/components";
+import Nav from "@/components/Nav.astro";
+import DarkMode from "@/components/DarkMode/DarkMode.astro";
+---
+
+<div
+  class="z-50 fixed top-0 left-0 m-auto py-sm w-full bg-ivory/50 dark:bg-shark-950/50 backdrop-blur-sm"
+>
+  <div class="flex mx-auto px-3xl">
+    <a href="/">
+      <Icon name="logo/tree-with-text" class="w-20 h-20" />
+    </a>
+    <!-- <span class="font-bold flex-1 font-serif text-3xl tracking-tighter"
+      >Geophytes</span
+    > -->
+    <div class="flex items-center gap-3xl ml-auto">
+      <Nav />
+      <div class="bg-shark-950 dark:bg-ivory h-full w-[1.5px]"></div>
+      <DarkMode />
+    </div>
+  </div>
+</div>

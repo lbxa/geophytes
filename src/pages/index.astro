@@ -1,0 +1,27 @@
+---
+import RootLayout from "@/layouts/RootLayout.astro";
+import Tree from "@/components/Tree/Tree.astro";
+---
+
+<RootLayout title="Geophytes">
+  <div class="splash flex items-center justify-center overflow-hidden">
+    <div
+      class="w-1/2 text-center italic text-5xl sm:text-6xl lg:text-8xl uppercase font-black m-auto"
+    >
+      <div>Nurturing Earth and People</div>
+    </div>
+  </div>
+</RootLayout>
+<Tree />
+
+<style>
+  .splash {
+    min-height: 100vh;
+  }
+
+  @supports (min-height: 100dvh) {
+    .splash {
+      min-height: 100dvh;
+    }
+  }
+</style>

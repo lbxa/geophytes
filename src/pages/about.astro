@@ -1,0 +1,16 @@
+---
+import ContentLayout from "@/layouts/ContentLayout.astro";
+import { getEntry } from "astro:content";
+const bio = await getEntry("about", "bio");
+const { Content: BioContent } = await bio.render();
+
+const contact = await getEntry("about", "contact");
+const { Content: ContactContent } = await contact.render();
+---
+
+<ContentLayout title="About Us">
+  <section>
+    <BioContent />
+    <ContactContent />
+  </section>
+</ContentLayout>

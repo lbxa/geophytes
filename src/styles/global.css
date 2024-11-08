@@ -1,0 +1,256 @@
+/* reset.css */
+/* https://hankchizljaw.com/wrote/a-modern-css-reset/ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  @apply bg-ivory dark:bg-shark-950;
+  @apply text-shark-950 dark:text-ivory;
+  font-family: system-ui, sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  height: -webkit-fill-available;
+}
+
+body {
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  /* mobile viewport bug fix */
+  /* https://allthingssmitty.com/2020/05/11/css-fix-for-100vh-in-mobile-webkit/ */
+  min-height: -webkit-fill-available;
+  @apply text-base;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+blockquote,
+code,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+  @apply mb-sm;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+  @apply font-bold;
+}
+
+h1 {
+  @apply text-4xl mb-xl;
+}
+
+h2 {
+  @apply text-3xl mb-lg;
+}
+
+h3 {
+  @apply text-2xl mb-md;
+}
+
+h4 {
+  @apply text-xl mb-sm;
+}
+
+h5 {
+  @apply text-lg mb-sm;
+}
+
+h6 {
+  @apply text-base mb-sm;
+}
+
+p {
+  @apply mb-md;
+}
+
+a {
+  @apply underline;
+}
+
+ul,
+ul,
+ol {
+  @apply ml-lg mb-md;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+ul ul,
+ol ul {
+  list-style-type: circle;
+}
+
+ol ol,
+ul ol {
+  list-style-type: lower-latin;
+}
+
+li {
+  @apply mb-sm;
+}
+
+li::marker {
+  @apply text-gray-600 dark:text-gray-400;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+blockquote {
+  @apply border-l-4 border-l-gray-700 text-gray-700 dark:border-l-gray-400 dark:text-gray-400;
+  @apply pl-lg my-lg;
+  font-style: italic;
+}
+
+code {
+  @apply font-mono;
+  @apply bg-gray-100 dark:bg-gray-800;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+pre {
+  @apply bg-gray-100 dark:bg-gray-800;
+  padding: 1rem;
+  border-radius: 5px;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  font-size: 0.9em;
+}
+
+hr {
+  @apply border-t border-gray-300 dark:border-gray-700;
+  @apply my-md;
+}
+
+table {
+  border-collapse: collapse;
+  @apply mb-lg w-full;
+}
+
+th,
+td {
+  @apply border border-gray-300 dark:border-gray-700;
+  @apply p-sm text-left;
+}
+
+th {
+  @apply bg-gray-100 dark:bg-gray-800;
+  font-weight: bold;
+}
+
+section {
+  @apply mb-xl;
+}
+
+/* Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Print styles */
+@media print {
+  body {
+    @apply text-black bg-white;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  @page {
+    margin: 2cm;
+  }
+}
+
+/* SOURCE CODE PRO */
+@font-face {
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro"),
+    url("/fonts/SourceCodePro/SourceCodePro-Light.ttf");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro"),
+    url("/fonts/SourceCodePro/SourceCodePro-Medium.ttf");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro"),
+    url("/fonts/SourceCodePro/SourceCodePro-Bold.ttf");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro"),
+    url("/fonts/SourceCodePro/SourceCodePro-Black.ttf");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
