@@ -7,14 +7,13 @@ import DarkMode from "@/components/DarkMode/DarkMode.astro";
 <div
   class="z-50 fixed top-0 left-0 m-auto py-sm w-full bg-ivory/50 dark:bg-shark-950/50 backdrop-blur-sm"
 >
-  <div class="flex mx-auto px-3xl">
-    <a href="/">
+  <div class="flex mx-auto sm:px-3xl">
+    <a href="/" class="hidden sm:block">
       <Icon name="logo/tree-with-text" class="w-20 h-20" />
     </a>
-    <!-- <span class="font-bold flex-1 font-serif text-3xl tracking-tighter"
-      >Geophytes</span
-    > -->
-    <div class="flex items-center gap-3xl ml-auto">
+    <div
+      class="flex items-center justify-around gap-xl mx-auto sm:gap-3xl sm:ml-auto sm:mr-0 h-16 sm:h-auto"
+    >
       <Nav />
       <div class="bg-shark-950 dark:bg-ivory h-1/2 w-[1.5px]"></div>
       <DarkMode />
