@@ -1,0 +1,28 @@
+---
+import { getCollection } from "astro:content";
+import ContentLayout from "@/layouts/ContentLayout.astro";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+dayjs.extend(relativeTime);
+
+const projects = await getCollection("projects");
+---
+
+<ContentLayout title="Projects">
+  <section>
+    {
+      projects.map((p) => (
+        <div class="flex flex-col gap-sm pb-md sm:pb-0 bg-shark-950/10 dark:bg-ivory/10 p-md rounded-lg">
+          <a
+            class="hover:underline focus:underline visited:text-purple-600 text-2xl mb-lg"
+            href={"/projects/" + p.slug}
+          >
+            {p.data.title.trim()}
+          </a>
+          <span>{p.data.author}</span>
+          <span>{dayjs(p.data.date).fromNow()}</span>
+        </div>
+      ))
+    }
+  </section>
+</ContentLayout>

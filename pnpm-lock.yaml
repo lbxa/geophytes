@@ -26,6 +26,9 @@ importers:
       astro-icon:
         specifier: ^1.1.2
         version: 1.1.2
+      dayjs:
+        specifier: ^1.11.13
+        version: 1.11.13
       solid-js:
         specifier: ^1.9.3
         version: 1.9.3
@@ -1034,6 +1037,9 @@ packages:
 
   dat.gui@0.7.9:
     resolution: {integrity: sha512-sCNc1OHobc+Erc1HqiswYgHdVNpSJUlk/Hz8vzOCsER7rl+oF/4+v8GXFUyCgtXpoCX6+bnmg07DedLvBLwYKQ==}
+
+  dayjs@1.11.13:
+    resolution: {integrity: sha512-oaMBel6gjolK862uaPQOVTA7q3TZhuSvuMQAAglQDOWYO9A91IrAOUJEyKVlqJlHE0vq5p5UXxzdPfMH/x6xNg==}
 
   debug@4.3.7:
     resolution: {integrity: sha512-Er2nc/H7RrMXZBFCEim6TCmMk02Z8vLC2Rbi1KEBggpo0fS6l0S1nnapwmIi3yW/+GOJap1Krg4w0Hg80oCqgQ==}
@@ -3763,6 +3769,8 @@ snapshots:
   csstype@3.1.3: {}
 
   dat.gui@0.7.9: {}
+
+  dayjs@1.11.13: {}
 
   debug@4.3.7:
     dependencies:
