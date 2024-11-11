@@ -69,27 +69,27 @@ h6 {
 }
 
 h1 {
-  @apply text-4xl mb-xl;
+  @apply text-4xl my-xl;
 }
 
 h2 {
-  @apply text-3xl mb-lg;
+  @apply text-3xl my-lg;
 }
 
 h3 {
-  @apply text-2xl mb-md;
+  @apply text-2xl my-md;
 }
 
 h4 {
-  @apply text-xl mb-sm;
+  @apply text-xl my-sm;
 }
 
 h5 {
-  @apply text-lg mb-sm;
+  @apply text-lg my-sm;
 }
 
 h6 {
-  @apply text-base mb-sm;
+  @apply text-base my-sm;
 }
 
 p {

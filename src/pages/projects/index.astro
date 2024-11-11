@@ -12,15 +12,12 @@ const projects = await getCollection("projects");
   <section>
     {
       projects.map((p) => (
-        <div class="flex flex-col gap-sm pb-md sm:pb-0 bg-shark-950/10 dark:bg-ivory/10 p-md rounded-lg">
-          <a
-            class="hover:underline focus:underline visited:text-purple-600 text-2xl mb-lg"
-            href={"/projects/" + p.slug}
-          >
-            {p.data.title.trim()}
+        <div class="flex flex-col p-md gap-sm bg-shark-950/10 dark:bg-ivory/10 rounded-lg">
+          <a class="no-underline" href={"/projects/" + p.slug}>
+            <p class="text-3xl mb-lg">{p.data.title.trim()}</p>
+            <p>{p.data.author}</p>
+            <p class="mb-0">{dayjs(p.data.date).fromNow()}</p>
           </a>
-          <span>{p.data.author}</span>
-          <span>{dayjs(p.data.date).fromNow()}</span>
         </div>
       ))
     }

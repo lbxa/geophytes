@@ -1,6 +1,9 @@
 ---
 import { getCollection, getEntry } from "astro:content";
 import ContentLayout from "@/layouts/ContentLayout.astro";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+dayjs.extend(relativeTime);
 
 type Props = {
   title: string;
@@ -27,9 +30,17 @@ export async function getStaticPaths() {
 
 <ContentLayout title={entry.data.title}>
   <header class="mb-xl">
-    <h1>{entry.data.title}</h1>
+    <h1 class="text-5xl sm:text-6xl font-black mb-2xl">
+      {entry.data.title}
+    </h1>
     <p>
       {entry.data.description}
+    </p>
+    <p>{entry.data.author}</p>
+    <p>
+      {dayjs(entry.data.date).fromNow()} on {
+        dayjs(entry.data.date).format("MMM D, YYYY")
+      } AEST
     </p>
   </header>
   <section>
