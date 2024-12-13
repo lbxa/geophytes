@@ -2,7 +2,12 @@
 import Socials from "@/components/Socials.astro";
 import ContentLayout from "@/layouts/ContentLayout.astro";
 import { getEntry } from "astro:content";
+
 const bio = await getEntry("about", "bio");
+if (!bio) {
+  throw new Error("Bio content not found");
+}
+
 const { Content: BioContent } = await bio.render();
 ---
 
