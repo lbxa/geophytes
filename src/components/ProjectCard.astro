@@ -1,0 +1,20 @@
+---
+import type { CollectionEntry } from "astro:content";
+import dayjs from "dayjs";
+
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+---
+
+<div
+  class="flex flex-col py-md gap-sm rounded-2xl border-2 border-transparent hover:border-shark-950 hover:dark:border-ivory transition-all duration-300 ease-out"
+>
+  <a class="no-underline" href={"/projects/" + project.slug}>
+    <p class="text-5xl md:text-6xl mb-lg">{project.data.title.trim()}</p>
+    <p>{project.data.author}</p>
+    <p class="mb-0">Written {dayjs(project.data.date).fromNow()}</p>
+  </a>
+</div>

@@ -61,7 +61,7 @@ const { title } = Astro.props;
 
         // set status bar dark mode on mobile
         const themeColorMetaTag = document.querySelector(
-          'meta[name="theme-color"]',
+          'meta[name="theme-color"]'
         );
 
         function updateThemeColor() {
@@ -69,7 +69,7 @@ const { title } = Astro.props;
             document.documentElement.classList.contains("dark");
           themeColorMetaTag?.setAttribute(
             "content",
-            isDarkMode ? "#121212" : "#f5f5f5",
+            isDarkMode ? "#121212" : "#f5f5f5"
           );
         }
 

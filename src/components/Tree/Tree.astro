@@ -1,4 +1,11 @@
 <canvas id="webgl"></canvas>
+<div id="loading-screen" class="fixed inset-0 z-50">
+  <div
+    id="progress-bar"
+    class="invisible w-0 dark:bg-ivory bg-blue-600 h-1 transition-all duration-300 ease-out absolute bottom-0 left-0"
+  >
+  </div>
+</div>
 <script src="./tree-model.ts"></script>
 <style>
   canvas#webgl {
@@ -11,5 +18,14 @@
     z-index: 1;
     pointer-events: none; /* This is crucial */
     mix-blend-mode: exclusion;
+  }
+
+  #loading-screen {
+    background-color: transparent;
+    pointer-events: none;
+  }
+
+  #progress-bar {
+    transition: width 0.3s ease-out;
   }
 </style>

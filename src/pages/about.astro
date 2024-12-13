@@ -12,3 +12,15 @@ const { Content: BioContent } = await bio.render();
     <Socials />
   </section>
 </ContentLayout>
+
+<style>
+  :global(h1) {
+    @apply text-6xl font-normal mb-xl;
+  }
+  :global(p) {
+    @apply text-xl;
+  }
+  :global(h1 + p) {
+    @apply mb-3xl;
+  }
+</style>

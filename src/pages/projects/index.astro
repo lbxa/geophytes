@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import ContentLayout from "@/layouts/ContentLayout.astro";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
+import ProjectCard from "@/components/ProjectCard.astro";
 dayjs.extend(relativeTime);
 
 const projects = await getCollection("projects");
@@ -10,16 +11,6 @@ const projects = await getCollection("projects");
 
 <ContentLayout title="Projects">
   <section>
-    {
-      projects.map((p) => (
-        <div class="flex flex-col p-md gap-sm bg-shark-950/10 dark:bg-ivory/10 rounded-lg">
-          <a class="no-underline" href={"/projects/" + p.slug}>
-            <p class="text-3xl mb-lg">{p.data.title.trim()}</p>
-            <p>{p.data.author}</p>
-            <p class="mb-0">{dayjs(p.data.date).fromNow()}</p>
-          </a>
-        </div>
-      ))
-    }
+    {projects.map((p) => <ProjectCard project={p} />)}
   </section>
 </ContentLayout>

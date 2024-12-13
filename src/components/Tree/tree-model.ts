@@ -4,6 +4,35 @@ import { GLTFLoader, type GLTF } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 /** 
+ *  Loading Manager
+ */
+const loadingManager = new THREE.LoadingManager(
+  // onLoad callback
+  () => {
+    console.log("All assets loaded");
+    const progressBar = document.getElementById("progress-bar")!;
+    progressBar.style.width = "100%";
+    setTimeout(() => {
+      document.getElementById("loading-screen")!.style.display = "none";
+      progressBar.style.visibility = "hidden";
+    }, 500);
+  },
+  // onProgress callback
+  (url, itemsLoaded, itemsTotal) => {
+    const progress = (itemsLoaded / itemsTotal) * 100;
+    console.log(`Loading file: ${url} (${progress.toFixed(2)}%)`);
+    const progressBar = document.getElementById("progress-bar")!;
+    progressBar.style.visibility = "visible";
+    progressBar.style.width = `${progress}%`;
+  },
+  // onError callback
+  (url) => {
+    console.error(`There was an error loading ${url}`);
+    document.getElementById("loading-screen")!.style.display = "none";
+  }
+);
+
+/** 
  *  Sizing
  */
 const sizes = {
@@ -46,23 +75,28 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 // renderer.setClearColor(0xe7bc2f);
 document.body.appendChild(renderer.domElement);
 
-const gltfLoader = new GLTFLoader().setPath('/assets/models/tree/');
+const gltfLoader = new GLTFLoader(loadingManager).setPath('/assets/models/tree/');
 gltfLoader.load('scene.gltf', (gltf: GLTF) => {
   const model = gltf.scene;
+
+  // Create a group to hold the model
+  const modelGroup = new THREE.Group();
+  scene.add(modelGroup);
 
   // Center the model around the origin
   const box = new THREE.Box3().setFromObject(model);
   const center = box.getCenter(new THREE.Vector3());
-  model.position.sub(center);
+  model.position.sub(center); // Center the model
 
-  scene.add(model);
+  // Add the model to the group
+  modelGroup.add(model);
 
   // Set the camera target to the model's position
   controls.target.set(0, 0, 0);
   controls.update();
 
-  // Store the model for use in the animate function
-  animateModel = model;
+  // Store the group for use in the animate function
+  animateModel = modelGroup;
 
   // const gui = new GUI();
   // const modelFolder = gui.addFolder('Model');
@@ -107,15 +141,15 @@ camera.position.set(0.5, 0.25, 2.5);
 controls.update();
 
 // Declare a variable to hold the model
-let animateModel: THREE.Object3D | null = null;
+let animateModel: THREE.Group | null = null;
 
 function animate() {
   requestAnimationFrame(animate);
 
-  // Rotate the model if it has been loaded
-  // if (animateModel) {
-  //   animateModel.rotation.y += 0.01; // Adjust the speed of rotation as needed
-  // }
+  // Rotate the model group if it has been loaded
+  if (animateModel) {
+    animateModel.rotation.y += 0.0005;
+  }
 
   controls.update();
   renderer.render(scene, camera);

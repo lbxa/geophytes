@@ -7,8 +7,8 @@ const isActive = path === href || path.startsWith(href + "/");
 <a
   href={href}
   class:list={[
-    "hover:underline text-lg sm:text-2xl",
-    isActive ? "underline" : "no-underline",
+    "text-lg sm:text-2xl border-2 border-transparent px-md py-sm rounded-2xl transition-all duration-300 ease-out no-underline hover:border-shark-950 hover:dark:border-ivory",
+    { "border-shark-950 dark:border-ivory": isActive },
   ]}
 >
   {label}

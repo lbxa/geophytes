@@ -6,9 +6,7 @@ const { title } = Astro.props;
 ---
 
 <RootLayout title={title}>
-  <main
-    class="flex flex-col mx-auto px-md sm:px-2xl max-w-screen-lg pt-[60px] sm:pt-[100px] min-h-dvh"
-  >
+  <main class="flex flex-col mx-auto px-md sm:px-2xl max-w-screen-lg min-h-dvh">
     <article class="grow">
       <slot />
     </article>

@@ -1,9 +1,12 @@
 ---
+import { Image, Picture } from "astro:assets";
 import { getCollection, getEntry } from "astro:content";
 import ContentLayout from "@/layouts/ContentLayout.astro";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 dayjs.extend(relativeTime);
+
+import Abstract2 from "@/assets/images/abstract-2.jpg";
 
 type Props = {
   title: string;
@@ -29,19 +32,31 @@ export async function getStaticPaths() {
 ---
 
 <ContentLayout title={entry.data.title}>
-  <header class="mb-xl">
-    <h1 class="text-5xl font-black mb-xl">
-      {entry.data.title}
-    </h1>
-    <p>
-      {entry.data.description}
-    </p>
-    <p>{entry.data.author}</p>
-    <p>
-      {dayjs(entry.data.date).fromNow()} on {
-        dayjs(entry.data.date).format("MMM D, YYYY")
-      } AEST
-    </p>
+  <header class="mb-3xl">
+    <div class="relative bg-yellow-200">
+      <Picture
+        src={Abstract2}
+        alt="A description of my image."
+        class="w-full"
+        loading="eager"
+      />
+      <div
+        class="absolute left-md right-md bottom-md z-20 dark:bg-shark-950/50 bg-ivory/50 backdrop-blur-md px-md"
+      >
+        <h1 class="text-5xl font-normal mb-xl">
+          {entry.data.title}
+        </h1>
+        <p>
+          {entry.data.description}
+        </p>
+        <p>{entry.data.author}</p>
+        <p>
+          {dayjs(entry.data.date).fromNow()} on {
+            dayjs(entry.data.date).format("MMM D, YYYY")
+          } AEST
+        </p>
+      </div>
+    </div>
   </header>
   <section>
     <Content />

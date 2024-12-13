@@ -103,7 +103,7 @@ a {
 ul,
 ul,
 ol {
-  @apply ml-lg mb-md;
+  @apply ml-lg mb-md pl-md;
 }
 
 ul {
