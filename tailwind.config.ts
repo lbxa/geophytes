@@ -13,9 +13,6 @@ export default {
         "art-2": "url('/src/assets/images/art-2.png')",
         "art-3": "url('/src/assets/images/art-3.png')",
         "art-4": "url('/src/assets/images/art-4.png')",
-        "art-5": "url('/src/assets/images/art-5.png')",
-        "art-6": "url('/src/assets/images/art-6.png')",
-        "art-7": "url('/src/assets/images/art-7.png')",
       },
       colors: {
         shark: {
@@ -34,8 +31,8 @@ export default {
         ivory: "#f5f5f5",
       },
       fontFamily: {
-        mono: ["Source Code Pro", ...defaultTheme.fontFamily.mono],
         serif: ["Times New Roman", ...defaultTheme.fontFamily.serif],
+        sans: ["Neue Montreal", ...defaultTheme.fontFamily.sans],
       },
       spacing: {
         xs: "0.25rem", // 4px / 16 = 0.25rem

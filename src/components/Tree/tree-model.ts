@@ -30,7 +30,7 @@ const loadingManager = new THREE.LoadingManager(
   (url) => {
     console.error(`There was an error loading ${url}`);
     document.getElementById("loading-screen")!.style.display = "none";
-  }
+  },
 );
 
 /**
@@ -77,7 +77,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 const gltfLoader = new GLTFLoader(loadingManager).setPath(
-  "/assets/models/tree/"
+  "/assets/models/tree/",
 );
 
 gltfLoader.load("scene.gltf", (gltf: GLTF) => {
@@ -120,7 +120,7 @@ const camera = new THREE.PerspectiveCamera(
   75,
   window.innerWidth / window.innerHeight,
   0.1,
-  1000
+  1000,
 );
 
 const domElement = document.querySelector<HTMLCanvasElement>("#webgl")!;
