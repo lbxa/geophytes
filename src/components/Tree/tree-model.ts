@@ -79,6 +79,7 @@ document.body.appendChild(renderer.domElement);
 const gltfLoader = new GLTFLoader(loadingManager).setPath(
   "/assets/models/tree/"
 );
+
 gltfLoader.load("scene.gltf", (gltf: GLTF) => {
   const model = gltf.scene;
 

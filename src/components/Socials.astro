@@ -1,6 +1,9 @@
 ---
 import { Icon } from "astro-icon/components";
 import { Picture } from "astro:assets";
+
+import Gab from "@/assets/dp/gab.jpeg";
+import Tully from "@/assets/dp/tully.jpeg";
 ---
 
 <section class="flex flex-col gap-sm mx-auto">
@@ -8,10 +11,12 @@ import { Picture } from "astro:assets";
   <div class="flex flex-col md:flex-row gap-3xl">
     <div class="flex flex-col gap-lg items-center">
       <Picture
-        src="/src/assets/dp/gab.jpeg"
+        src={Gab}
         alt="Gabriella Martins Cardoso"
         width={200}
         height={200}
+        decoding="async"
+        loading="eager"
         class="rounded-full"
       />
       <a
@@ -26,10 +31,12 @@ import { Picture } from "astro:assets";
     </div>
     <div class="flex flex-col gap-lg items-center">
       <Picture
-        src="/src/assets/dp/tully.jpeg"
+        src={Tully}
         alt="Tully O'Regan"
         width={200}
         height={200}
+        decoding="async"
+        loading="eager"
         class="rounded-full"
       />
       <a
