@@ -1,24 +1,46 @@
 ---
 import { Icon } from "astro-icon/components";
+import { Picture } from "astro:assets";
 ---
 
-<section class="flex flex-col gap-sm">
-  <h1>Get in Touch</h1>
-  <strong>Executive Directors</strong>
-  <a
-    class="flex gap-sm no-underline"
-    href="https://linkedin.com/in/gabriella-martins-cardoso/"
-    target="_blank"
-  >
-    <Icon name="linkedin" class="h-xl dark:fill-ivory fill-shark-950" />
-    <span>Gabriella Martins Cardoso</span>
-  </a>
-  <a
-    class="flex gap-sm no-underline"
-    href="https://linkedin.com/in/tullyoregan/"
-    target="_blank"
-  >
-    <Icon name="linkedin" class="h-xl dark:fill-ivory fill-shark-950" />
-    <span>Tully O'Regan</span>
-  </a>
+<section class="flex flex-col gap-sm mx-auto">
+  <h1 class="text-center">Get in Touch</h1>
+  <div class="flex flex-col md:flex-row gap-3xl">
+    <div class="flex flex-col gap-lg items-center">
+      <Picture
+        src="/src/assets/dp/gab.jpeg"
+        alt="Gabriella Martins Cardoso"
+        width={200}
+        height={200}
+        class="rounded-full"
+      />
+      <a
+        class="flex gap-sm no-underline"
+        href="https://linkedin.com/in/gabriella-martins-cardoso/"
+        target="_blank"
+      >
+        <Icon name="linkedin" class="h-xl dark:fill-ivory fill-shark-950" />
+        <span>Gabriella Martins Cardoso</span>
+      </a>
+      <p>Executive Director</p>
+    </div>
+    <div class="flex flex-col gap-lg items-center">
+      <Picture
+        src="/src/assets/dp/tully.jpeg"
+        alt="Tully O'Regan"
+        width={200}
+        height={200}
+        class="rounded-full"
+      />
+      <a
+        class="flex gap-sm no-underline"
+        href="https://www.linkedin.com/in/tullyoregan/"
+        target="_blank"
+      >
+        <Icon name="linkedin" class="h-xl dark:fill-ivory fill-shark-950" />
+        <span>Tully O'Regan</span>
+      </a>
+      <p>Executive Director</p>
+    </div>
+  </div>
 </section>

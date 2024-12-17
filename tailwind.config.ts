@@ -9,7 +9,13 @@ export default {
         "abstract-1": "url('/src/assets/images/abstract-1.jpg')",
         "abstract-2": "url('/src/assets/images/abstract-2.jpg')",
         "abstract-3": "url('/src/assets/images/abstract-3.jpg')",
-        "abstract-4": "url('/src/assets/images/abstract-4.jpg')",
+        "art-1": "url('/src/assets/images/art-1.png')",
+        "art-2": "url('/src/assets/images/art-2.png')",
+        "art-3": "url('/src/assets/images/art-3.png')",
+        "art-4": "url('/src/assets/images/art-4.png')",
+        "art-5": "url('/src/assets/images/art-5.png')",
+        "art-6": "url('/src/assets/images/art-6.png')",
+        "art-7": "url('/src/assets/images/art-7.png')",
       },
       colors: {
         shark: {

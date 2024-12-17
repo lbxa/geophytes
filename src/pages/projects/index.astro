@@ -2,15 +2,22 @@
 import { getCollection } from "astro:content";
 import ContentLayout from "@/layouts/ContentLayout.astro";
 import ProjectCard from "@/components/ProjectCard.astro";
+import Footer from "@/components/Footer.astro";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
+import RootLayout from "@/layouts/RootLayout.astro";
 dayjs.extend(relativeTime);
 
 const projects = await getCollection("projects");
 ---
 
-<ContentLayout title="Projects">
-  <section class="flex flex-col gap-md">
-    {projects.map((p) => <ProjectCard project={p} />)}
-  </section>
-</ContentLayout>
+<RootLayout title="Projects">
+  <main class="flex flex-col mx-auto px-md sm:px-2xl min-h-dvh">
+    <article class="grow">
+      <section class="flex flex-col gap-md">
+        {projects.map((p) => <ProjectCard project={p} />)}
+      </section>
+    </article>
+    <Footer />
+  </main>
+</RootLayout>

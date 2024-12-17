@@ -13,8 +13,10 @@ const { project } = Astro.props;
   class="flex flex-col py-md sm:px-md gap-sm rounded-2xl border-2 border-transparent hover:border-shark-950 hover:dark:border-ivory transition-all duration-300 ease-out"
 >
   <a class="no-underline" href={"/projects/" + project.slug}>
-    <p class="text-5xl md:text-6xl mb-lg">{project.data.title.trim()}</p>
-    <p>{project.data.author}</p>
-    <p class="mb-0">Written {dayjs(project.data.date).fromNow()}</p>
+    <p class="text-4xl md:text-6xl mb-lg xl:text-8xl">
+      {project.data.title.trim()}
+    </p>
+    <p class="text-xl">{project.data.author}</p>
+    <p class="mb-0 text-xl">Written {dayjs(project.data.date).fromNow()}</p>
   </a>
 </div>

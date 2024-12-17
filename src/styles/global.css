@@ -1,3 +1,84 @@
+/* fonts */
+@font-face {
+  font-family: "Neue Montreal";
+  src:
+    local("Neue Montreal"),
+    url("/fonts/NeueMontreal/NeueMontreal-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Montreal";
+  src:
+    local("Neue Montreal"),
+    url("/fonts/NeueMontreal/NeueMontreal-Italic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Montreal";
+  src:
+    local("Neue Montreal"),
+    url("/fonts/NeueMontreal/NeueMontreal-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Montreal";
+  src:
+    local("Neue Montreal"),
+    url("/fonts/NeueMontreal/NeueMontreal-BoldItalic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Montreal";
+  src:
+    local("Neue Montreal"),
+    url("/fonts/NeueMontreal/NeueMontreal-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Montreal";
+  src:
+    local("Neue Montreal"),
+    url("/fonts/NeueMontreal/NeueMontreal-LightItalic.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Montreal";
+  src:
+    local("Neue Montreal"),
+    url("/fonts/NeueMontreal/NeueMontreal-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Montreal";
+  src:
+    local("Neue Montreal"),
+    url("/fonts/NeueMontreal/NeueMontreal-MediumItalic.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
 /* reset.css */
 /* https://hankchizljaw.com/wrote/a-modern-css-reset/ */
 *,
@@ -11,7 +92,7 @@
 html {
   @apply bg-ivory dark:bg-shark-950;
   @apply text-shark-950 dark:text-ivory;
-  font-family: system-ui, sans-serif;
+  font-family: "Neue Montreal", system-ui, sans-serif;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
   height: -webkit-fill-available;
@@ -57,16 +138,6 @@ h6 {
   @apply mb-sm;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  line-height: 1.2;
-  @apply font-bold;
-}
-
 h1 {
   @apply text-4xl my-xl;
 }
@@ -92,7 +163,7 @@ h6 {
 }
 
 p {
-  @apply mb-md;
+  @apply mb-md text-lg;
 }
 
 a {
@@ -124,7 +195,7 @@ ul ol {
 }
 
 li {
-  @apply mb-sm;
+  @apply mb-sm text-lg;
 }
 
 #root,
@@ -210,17 +281,5 @@ section {
 
   @page {
     margin: 2cm;
-  }
-}
-
-@keyframes gradient-1 {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
   }
 }
