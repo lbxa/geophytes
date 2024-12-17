@@ -1,16 +1,16 @@
 ---
 import { getCollection } from "astro:content";
 import ContentLayout from "@/layouts/ContentLayout.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
-import ProjectCard from "@/components/ProjectCard.astro";
 dayjs.extend(relativeTime);
 
 const projects = await getCollection("projects");
 ---
 
 <ContentLayout title="Projects">
-  <section>
+  <section class="flex flex-col gap-md">
     {projects.map((p) => <ProjectCard project={p} />)}
   </section>
 </ContentLayout>

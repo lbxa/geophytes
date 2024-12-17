@@ -1,0 +1,138 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  index: number;
+  section: CollectionEntry<"about">;
+}
+
+const { section, index } = Astro.props;
+const { Content } = await section.render();
+
+const gradientClasses = [
+  "gradient-1",
+  "gradient-2",
+  "gradient-3",
+  "gradient-4",
+];
+
+const abstractImages = [
+  "bg-abstract-1",
+  "bg-abstract-2",
+  "bg-abstract-3",
+  "bg-abstract-4",
+];
+
+const gradientClass =
+  index % 2 === 1 ? gradientClasses[Math.floor(index / 2) % 4] : "";
+
+const abstractImage = abstractImages[index % 4];
+---
+
+<div
+  class={`min-h-dvh even:bg-shark-950 dark:even:bg-shark-700 even:text-white flex flex-col px-md ${gradientClass}`}
+>
+  <div class="m-auto max-w-screen-lg">
+    <h1
+      class:list={[
+        "text-left text-7xl font-bold",
+        {
+          "bg-clip-text text-transparent bg-cover bg-center": index % 2 === 0,
+          [abstractImage]: index % 2 === 0,
+        },
+      ]}
+    >
+      {section.data.title}
+    </h1>
+    <Content />
+  </div>
+</div>
+
+<style>
+  :global(p) {
+    @apply text-xl;
+  }
+
+  .gradient-1 {
+    background: radial-gradient(
+        circle at 0% 0%,
+        rgb(243, 244, 246) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 100% 0%,
+        rgb(156, 163, 175) 0%,
+        transparent 50%
+      ),
+      radial-gradient(circle at 50% 100%, rgb(55, 65, 81) 0%, transparent 50%),
+      radial-gradient(
+        circle at 50% 50%,
+        rgb(209, 213, 219) 0%,
+        rgb(31, 41, 55) 100%
+      );
+    background-size: 200% 200%;
+    animation: gradient-1 15s ease infinite;
+  }
+
+  .gradient-2 {
+    @apply bg-gradient-to-r from-shark-300 via-shark-500 to-shark-800;
+    background-size: 200% 200%;
+    animation: gradient-1 10s ease infinite;
+  }
+
+  .gradient-3 {
+    background: radial-gradient(
+        circle at 0% 0%,
+        rgb(251, 146, 60) 0%,
+        transparent 40%
+      ),
+      radial-gradient(circle at 100% 0%, rgb(234, 88, 12) 0%, transparent 45%),
+      radial-gradient(circle at 0% 100%, rgb(194, 65, 12) 0%, transparent 45%),
+      radial-gradient(
+        circle at 100% 100%,
+        rgb(154, 52, 18) 0%,
+        transparent 45%
+      ),
+      radial-gradient(
+        circle at 25% 25%,
+        rgb(255, 170, 100) 0%,
+        transparent 35%
+      ),
+      radial-gradient(
+        circle at 75% 75%,
+        rgb(255, 170, 100) 0%,
+        transparent 35%
+      ),
+      radial-gradient(
+        circle at 50% 50%,
+        rgb(255, 170, 100) 0%,
+        rgb(124, 45, 18) 100%
+      );
+    background-size: 200% 200%;
+    animation: gradient-1 18s ease infinite;
+  }
+
+  .gradient-4 {
+    background: radial-gradient(
+        circle at 0% 0%,
+        rgb(180, 124, 65) 0%,
+        transparent 35%
+      ),
+      radial-gradient(circle at 100% 0%, rgb(160, 110, 58) 0%, transparent 35%),
+      radial-gradient(circle at 0% 100%, rgb(140, 93, 45) 0%, transparent 35%),
+      radial-gradient(
+        circle at 100% 100%,
+        rgb(120, 77, 34) 0%,
+        transparent 35%
+      ),
+      radial-gradient(circle at 25% 25%, rgb(200, 137, 72) 0%, transparent 30%),
+      radial-gradient(circle at 75% 75%, rgb(200, 137, 72) 0%, transparent 30%),
+      radial-gradient(
+        circle at 50% 50%,
+        rgb(220, 151, 79) 0%,
+        rgb(66, 43, 19) 100%
+      );
+    background-size: 200% 200%;
+    animation: gradient-1 12s ease infinite;
+  }
+</style>

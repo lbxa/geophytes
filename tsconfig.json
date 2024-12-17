@@ -3,8 +3,8 @@
   "compilerOptions": {
     "strictNullChecks": true,
     "baseUrl": ".",
-    "jsx": "preserve",
-    "jsxImportSource": "solid-js",
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
     "paths": {
       "@/*": ["src/*"]
     }

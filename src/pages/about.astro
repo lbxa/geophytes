@@ -1,31 +1,27 @@
 ---
 import Socials from "@/components/Socials.astro";
 import ContentLayout from "@/layouts/ContentLayout.astro";
-import { getEntry } from "astro:content";
+import { getCollection } from "astro:content";
+import { Sections } from "@/components/Sections";
+import AboutSection from "@/components/AboutSection.astro";
+import Footer from "@/components/Footer.astro";
+import RootLayout from "@/layouts/RootLayout.astro";
 
-const bio = await getEntry("about", "bio");
-if (!bio) {
-  throw new Error("Bio content not found");
+const about = await getCollection("about");
+if (!about) {
+  throw new Error("About content not found");
 }
-
-const { Content: BioContent } = await bio.render();
 ---
 
-<ContentLayout title="About Us">
-  <section>
-    <BioContent />
-    <Socials />
-  </section>
-</ContentLayout>
-
-<style>
-  :global(h1) {
-    @apply text-6xl font-normal mb-xl;
-  }
-  :global(p) {
-    @apply text-xl;
-  }
-  :global(h1 + p) {
-    @apply mb-3xl;
-  }
-</style>
+<RootLayout title="About Us">
+  <main class="flex flex-col mx-auto min-h-dvh">
+    {
+      about.map(async (item, index) => (
+        <AboutSection section={item} index={index} />
+      ))
+    }
+    <div class="max-w-screen-lg mx-auto px-md">
+      <Footer />
+    </div>
+  </main>
+</RootLayout>

@@ -1,16 +1,21 @@
-import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
-import solidJs from '@astrojs/solid-js';
-
-import icon from 'astro-icon';
-
-import mdx from '@astrojs/mdx';
+import mdx from "@astrojs/mdx";
+import react from "@astrojs/react";
+import solidJs from "@astrojs/solid-js";
+import tailwind from "@astrojs/tailwind";
+import { defineConfig } from "astro/config";
+import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
   prefetch: {
     prefetchAll: true,
-    defaultStrategy: "viewport"
+    defaultStrategy: "viewport",
   },
-  integrations: [tailwind(), solidJs(), icon({ iconDir: "src/assets/icons" }), mdx()]
+  integrations: [
+    tailwind(),
+    react(),
+    solidJs(),
+    icon({ iconDir: "src/assets/icons" }),
+    mdx(),
+  ],
 });

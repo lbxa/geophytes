@@ -1,9 +1,10 @@
-import * as THREE from 'three';
-import { GUI } from 'dat.gui';
-import { GLTFLoader, type GLTF } from 'three/addons/loaders/GLTFLoader.js';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+// import { GUI } from "dat.gui";
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import type { GLTF } from "three/addons/loaders/GLTFLoader.js";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 
-/** 
+/**
  *  Loading Manager
  */
 const loadingManager = new THREE.LoadingManager(
@@ -32,7 +33,7 @@ const loadingManager = new THREE.LoadingManager(
   }
 );
 
-/** 
+/**
  *  Sizing
  */
 const sizes = {
@@ -51,7 +52,7 @@ window.addEventListener("resize", () => {
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 });
 
-/** 
+/**
  *  Scene
  */
 
@@ -75,8 +76,10 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 // renderer.setClearColor(0xe7bc2f);
 document.body.appendChild(renderer.domElement);
 
-const gltfLoader = new GLTFLoader(loadingManager).setPath('/assets/models/tree/');
-gltfLoader.load('scene.gltf', (gltf: GLTF) => {
+const gltfLoader = new GLTFLoader(loadingManager).setPath(
+  "/assets/models/tree/"
+);
+gltfLoader.load("scene.gltf", (gltf: GLTF) => {
   const model = gltf.scene;
 
   // Create a group to hold the model
@@ -110,7 +113,7 @@ gltfLoader.load('scene.gltf', (gltf: GLTF) => {
   // cameraFolder.add(camera.position, 'y', -10, 10).name('Camera Y');
   // cameraFolder.add(camera.position, 'z', 0, 30).name('Camera Z');
   // cameraFolder.open();
-})
+});
 
 const camera = new THREE.PerspectiveCamera(
   75,
@@ -135,9 +138,9 @@ controls.enableZoom = false;
 camera.position.set(0.5, 0.25, 2.5);
 // camera.lookAt(0, 0, 0);
 /**
- * controls.update() must be called after any manual changes 
+ * controls.update() must be called after any manual changes
  * to the camera's transform
-*/
+ */
 controls.update();
 
 // Declare a variable to hold the model
