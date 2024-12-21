@@ -1,5 +1,17 @@
+---
+interface Props {
+  showBlankSpace?: boolean;
+}
+
+const { showBlankSpace = false } = Astro.props;
+---
+
 <footer class="mt-[33dvh] pb-xl">
-  <!-- <div class="pb-md">[Blank Reading Space]</div> -->
+  {
+    showBlankSpace && (
+      <div class="pb-md text-center">[Eye-Level Reading Space]</div>
+    )
+  }
   <hr class="mb-sm" />
   <div
     class="mx-auto flex flex-col sm:flex-row items-center sm:items-baseline gap-md justify-center sm:justify-end"
@@ -17,7 +29,9 @@
       <span class="font-bold font-serif text-2xl md:text-3xl tracking-tighter"
         >geophytes</span
       >
-      <span> All Rights Reserved (C) {new Date().getFullYear()}</span>
+      <span class="text-sm">
+        All Rights Reserved (C) {new Date().getFullYear()}</span
+      >
     </div>
   </div>
 </footer>

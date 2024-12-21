@@ -10,7 +10,7 @@ interface Props {
 const { section, index } = Astro.props;
 const { Content } = await section.render();
 
-const abstractImages = ["bg-abstract-1", "bg-abstract-2", "bg-abstract-3"];
+const abstractImages = ["bg-abstract-2", "bg-abstract-3" /*"bg-abstract-4"*/];
 const artImages = [
   "bg-art-1",
   "bg-art-2",
@@ -21,7 +21,7 @@ const artImages = [
   "bg-art-7",
 ];
 
-const abstractImage = abstractImages[index % 3];
+const abstractImage = abstractImages[index % 2];
 const artImage = artImages[index % 7];
 ---
 
@@ -31,9 +31,9 @@ const artImage = artImages[index % 7];
   <div class="m-auto max-w-screen-md">
     <h1
       class:list={[
-        "text-left text-7xl lg:text-9xl font-bold bg-clip-text text-transparent bg-cover bg-center",
+        "text-left text-6xl lg:text-9xl font-bold bg-clip-text text-transparent bg-cover bg-center",
         {
-          [artImage]: true,
+          [abstractImage]: true,
         },
       ]}
     >
