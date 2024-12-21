@@ -1,37 +1,30 @@
 ---
-import { Image, Picture } from "astro:assets";
-import { getCollection, getEntry } from "astro:content";
+import { Picture } from "astro:assets";
+import { getCollection } from "astro:content";
 import ContentLayout from "@/layouts/ContentLayout.astro";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 dayjs.extend(relativeTime);
 
 import Abstract2 from "@/assets/images/abstract-2.jpg";
+import { slug } from "@/utils";
+import { render } from "astro:content";
 
-type Props = {
-  title: string;
-};
-
-const { title } = Astro.params;
-const entry = await getEntry("projects", title);
-
-// TODO Redirect to 404 page
-if (!entry) {
-  throw new Error(`Blog post with title "${title}" not found`);
-}
-
-const { Content, headings } = await entry.render();
-
-// Define getStaticPaths to generate paths for all blog posts
 export async function getStaticPaths() {
-  const projects = await getCollection("projects");
-  return projects.map((post) => ({
-    params: { title: post.slug },
-  }));
+  const projects = await getCollection("notion");
+  return projects.map((project) => {
+    return {
+      params: { slug: slug(project.data.properties.Name) },
+      props: { project },
+    };
+  });
 }
+
+const { project } = Astro.props;
+const { Content } = await render(project);
 ---
 
-<ContentLayout title={entry.data.title}>
+<ContentLayout title={project.data.properties.Name}>
   <header class="mb-3xl">
     <div class="relative bg-yellow-200">
       <Picture
@@ -44,15 +37,16 @@ export async function getStaticPaths() {
         class="absolute left-md right-md bottom-md z-20 dark:bg-shark-950/50 bg-ivory/50 backdrop-blur-md px-md"
       >
         <h1 class="text-5xl xl:text-7xl font-normal mb-xl">
-          {entry.data.title}
+          {project.data.properties.Name}
         </h1>
         <p>
-          {entry.data.description}
+          {project.data.properties.Author}
         </p>
-        <p>{entry.data.author}</p>
         <p>
-          {dayjs(entry.data.date).fromNow()} on {
-            dayjs(entry.data.date).format("MMM D, YYYY")
+          {dayjs(project.data.properties.Date.last_edited_time).fromNow()} on {
+            dayjs(project.data.properties.Date.last_edited_time).format(
+              "MMM D, YYYY",
+            )
           }
         </p>
       </div>

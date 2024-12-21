@@ -12,6 +12,14 @@ export default defineConfig({
     prefetchAll: true,
     defaultStrategy: "viewport",
   },
+  image: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "*.amazonaws.com",
+      },
+    ],
+  },
   integrations: [
     tailwind(),
     react(),
