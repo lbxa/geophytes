@@ -2,16 +2,9 @@
 interface Props {
   showBlankSpace?: boolean;
 }
-
-const { showBlankSpace = false } = Astro.props;
 ---
 
 <footer class="mt-[33dvh] pb-xl">
-  {
-    showBlankSpace && (
-      <div class="pb-md text-center">[Eye-Level Reading Space]</div>
-    )
-  }
   <hr class="mb-sm" />
   <div
     class="mx-auto flex flex-col sm:flex-row items-center sm:items-baseline gap-md justify-center sm:justify-end"

@@ -4,22 +4,22 @@ import Footer from "@/components/Footer.astro";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import RootLayout from "@/layouts/RootLayout.astro";
-import ProjectCard from "@/components/ProjectCard.astro";
+import ReportCard from "@/components/ReportCard.astro";
 dayjs.extend(relativeTime);
 
-const projects = await getCollection("projects");
+const reports = await getCollection("reports");
 ---
 
-<RootLayout title="Projects">
+<RootLayout title="Reports">
   <main class="flex flex-col mx-auto px-md sm:px-2xl min-h-dvh">
     <article class="grow">
       <section class="flex flex-col gap-md">
         {
-          projects.length > 0 ? (
-            projects.map((p) => <ProjectCard project={p} />)
+          reports.length > 0 ? (
+            reports.map((r) => <ReportCard report={r} />)
           ) : (
             <p class="text-center py-lg text-gray-500">
-              No projects yet. Check back later!
+              No reports yet. Check back later!
             </p>
           )
         }

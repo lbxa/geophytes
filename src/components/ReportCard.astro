@@ -4,22 +4,25 @@ import type { CollectionEntry } from "astro:content";
 import dayjs from "dayjs";
 
 interface Props {
-  project: CollectionEntry<"projects">;
+  report: CollectionEntry<"reports">;
 }
 
-const { project } = Astro.props;
+const { report } = Astro.props;
 ---
 
 <div
   class="flex flex-col py-md sm:px-md gap-sm rounded-2xl border-2 border-transparent hover:border-shark-950 hover:dark:border-ivory transition-all duration-300 ease-out"
 >
-  <a class="no-underline" href={"/projects/" + slug(project.data.title)}>
+  <a
+    class="no-underline"
+    href={"/reports/" + slug(report.data.properties.Name)}
+  >
     <p class="text-4xl md:text-6xl mb-lg xl:text-8xl">
-      {project.data.title}
+      {report.data.properties.Name}
     </p>
-    <p class="text-xl">{project.data.author}</p>
+    <p class="text-xl">{report.data.properties.Author}</p>
     <p class="mb-0 text-xl">
-      Published {dayjs(project.data.date).fromNow()}
+      Published {dayjs(report.data.properties.Date.last_edited_time).fromNow()}
     </p>
   </a>
 </div>

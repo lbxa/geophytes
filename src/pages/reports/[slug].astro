@@ -11,20 +11,20 @@ import { slug } from "@/utils";
 import { render } from "astro:content";
 
 export async function getStaticPaths() {
-  const projects = await getCollection("projects");
-  return projects.map((project) => {
+  const reports = await getCollection("reports");
+  return reports.map((report) => {
     return {
-      params: { slug: slug(project.data.title) },
-      props: { project },
+      params: { slug: slug(report.data.properties.Name) },
+      props: { report },
     };
   });
 }
 
-const { project } = Astro.props;
-const { Content } = await render(project);
+const { report } = Astro.props;
+const { Content } = await render(report);
 ---
 
-<ContentLayout title={project.data.title}>
+<ContentLayout title={report.data.properties.Name}>
   <header class="mb-3xl">
     <div class="relative bg-yellow-200">
       <Picture
@@ -37,14 +37,16 @@ const { Content } = await render(project);
         class="absolute left-md right-md bottom-md z-20 dark:bg-shark-950/50 bg-ivory/50 backdrop-blur-md px-md"
       >
         <h1 class="text-5xl xl:text-7xl font-normal mb-xl">
-          {project.data.title}
+          {report.data.properties.Name}
         </h1>
         <p>
-          {project.data.author}
+          {report.data.properties.Author}
         </p>
         <p>
-          {dayjs(project.data.date).fromNow()} on {
-            dayjs(project.data.date).format("MMM D, YYYY")
+          {dayjs(report.data.properties.Date.last_edited_time).fromNow()} on {
+            dayjs(report.data.properties.Date.last_edited_time).format(
+              "MMM D, YYYY",
+            )
           }
         </p>
       </div>

@@ -20,7 +20,7 @@ const aboutCollection = defineCollection({
   }),
 });
 
-const notionCollection = defineCollection({
+const reportNotionCollection = defineCollection({
   loader: notionLoader({
     auth: import.meta.env.NOTION_TOKEN,
     database_id: import.meta.env.NOTION_DATABASE_ID,
@@ -36,10 +36,10 @@ const notionCollection = defineCollection({
 });
 
 export const collections = {
-  projects: projectCollection,
   about: aboutCollection,
   other: defineCollection({
     type: "content",
   }),
-  notion: notionCollection,
+  reports: reportNotionCollection,
+  projects: projectCollection,
 };
