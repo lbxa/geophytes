@@ -9,12 +9,13 @@ dayjs.extend(relativeTime);
 import Abstract2 from "@/assets/images/abstract-2.jpg";
 import { slug } from "@/utils";
 import { render } from "astro:content";
+import { Icon } from "astro-icon/components";
 
 export async function getStaticPaths() {
   const reports = await getCollection("reports");
   return reports.map((report) => {
     return {
-      params: { slug: slug(report.data.properties.Name) },
+      params: { slug: slug(report.data.properties.Name as string) },
       props: { report },
     };
   });
@@ -25,14 +26,15 @@ const { Content } = await render(report);
 ---
 
 <ContentLayout title={report.data.properties.Name}>
-  <header class="mb-3xl">
-    <div class="relative bg-yellow-200">
+  <header class="mb-3xl mt-3xl">
+    <div class="relative">
       <Picture
         src={Abstract2}
         alt="A description of my image."
         class="w-full"
         loading="eager"
       />
+
       <div
         class="absolute left-md right-md bottom-md z-20 dark:bg-shark-950/50 bg-ivory/50 backdrop-blur-md px-md"
       >
@@ -53,6 +55,17 @@ const { Content } = await render(report);
     </div>
   </header>
   <section>
+    <div class="mb-2xl">
+      <a
+        href="/files/mining-report.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-sm px-lg py-md text-lg font-medium text-gray-900 dark:text-gray-100 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-md hover:shadow-lg hover:border-shark-950 hover:dark:border-ivory transition-all duration-300 ease-out"
+      >
+        Read the full report
+        <Icon name="arrow-out" class="w-4 h-4" />
+      </a>
+    </div>
     <Content />
   </section>
 </ContentLayout>

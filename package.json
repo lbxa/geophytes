@@ -2,9 +2,9 @@
   "name": "geophytes",
   "type": "module",
   "version": "0.0.1",
-  "packageManager": "pnpm@9.15.0",
+  "packageManager": "pnpm@10.12.1",
   "engines": {
-    "node": ">=20"
+    "node": "20.x"
   },
   "scripts": {
     "dev": "astro dev",
@@ -19,13 +19,13 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/mdx": "^4.0.2",
-    "@astrojs/react": "^4.1.0",
-    "@astrojs/solid-js": "^5.0.0",
-    "@astrojs/tailwind": "^5.1.3",
+    "@astrojs/mdx": "^4.3.0",
+    "@astrojs/react": "^4.3.0",
+    "@astrojs/solid-js": "^5.1.0",
+    "@astrojs/tailwind": "^6.0.2",
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.2",
-    "astro": "^5.0.5",
+    "astro": "^5.9.3",
     "astro-icon": "^1.1.2",
     "dayjs": "^1.11.13",
     "notion-astro-loader": "^0.4.0",

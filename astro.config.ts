@@ -22,7 +22,9 @@ export default defineConfig({
   },
   integrations: [
     tailwind(),
-    react(),
+    react({
+      include: "**/react/*.tsx",
+    }),
     solidJs(),
     icon({ iconDir: "src/assets/icons" }),
     mdx(),
